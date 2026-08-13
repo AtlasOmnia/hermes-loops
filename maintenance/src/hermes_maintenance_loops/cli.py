@@ -11,7 +11,7 @@ from .report import unified_report
 
 
 def _parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="hermes-health-loops")
+    parser = argparse.ArgumentParser(prog="hermes-maintenance-loops")
     sub = parser.add_subparsers(dest="command", required=True)
     health = sub.add_parser("health")
     health.add_argument("--hermes-home")

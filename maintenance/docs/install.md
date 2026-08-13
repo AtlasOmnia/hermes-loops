@@ -10,7 +10,7 @@ From a checkout or source archive, install the package with the normal Python pa
 python3 -m pip install .
 ```
 
-This installs the `hermes-health-loops` command. The health command reads a caller-selected home, and the improvement command reads only explicitly supplied source files. See the README for short examples.
+This installs the `hermes-maintenance-loops` command. The health command reads a caller-selected home, and the improvement command reads only explicitly supplied source files. See the README for short examples.
 
 ## Dry-run boundary
 

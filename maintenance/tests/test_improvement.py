@@ -10,9 +10,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from hermes_health_loops.improvement import collect_packets, evaluate_packets, write_runtime_artifacts
-from hermes_health_loops.redact import redact
-from hermes_health_loops.rubric import REPEAT_COUNT, WINDOW_DAYS
+from hermes_maintenance_loops.improvement import collect_packets, evaluate_packets, write_runtime_artifacts
+from hermes_maintenance_loops.redact import redact
+from hermes_maintenance_loops.rubric import REPEAT_COUNT, WINDOW_DAYS
 
 
 class ImprovementTests(unittest.TestCase):

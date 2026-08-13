@@ -7,7 +7,7 @@ unchanged.
 | Loop | What it does | Writes? |
 | --- | --- | --- |
 | [autoresearch](autoresearch/) | Karpathy-style propose→test→keep/revert harness for repository experiments | Yes — commits/reverts in a local git repo |
-| [health](health/) | Read-only Hermes health audit + suggestion-only improvement evaluator | No — read-only by design |
+| [maintenance](maintenance/) | Read-only Hermes health audit + suggestion-only improvement evaluator | No — read-only by design |
 | [hermes-diagnostic-review](https://github.com/AtlasOmnia/hermes-custom-pack/blob/main/skills/hermes-diagnostic-review/SKILL.md) | LLM-driven diagnostic review for recurring mistakes and reusable improvements — a skill in hermes-custom-pack | No — read-only, suggestion-only |
 
 The two code packages have opposite safety postures: the autoresearch harness mutates a git
@@ -26,7 +26,7 @@ pushes anywhere.
 See [autoresearch/README.md](autoresearch/README.md). The general methodology is in
 [docs/autoresearch-playbook.md](docs/autoresearch-playbook.md).
 
-### health
+### maintenance
 
 Two independent maintenance loops for a Hermes install:
 
@@ -35,7 +35,7 @@ Two independent maintenance loops for a Hermes install:
 - **Improvement loop** — accepts an explicitly supplied outcome packet, redacts it, and turns
   repeated or notable outcomes into a suggestion for human review. Never auto-applies.
 
-See [health/README.md](health/README.md).
+See [maintenance/README.md](maintenance/README.md).
 
 ## Diagnostic review
 
@@ -45,7 +45,7 @@ reusable improvements — is LLM-driven, so it ships as a skill rather than a co
 - [hermes-diagnostic-review](https://github.com/AtlasOmnia/hermes-custom-pack/blob/main/skills/hermes-diagnostic-review/SKILL.md) —
   read-only diagnostic review, suggestion-only output, human-gated promotion.
 
-The deterministic `health` improvement loop is the frozen-rubric evaluator half of the same idea.
+The deterministic improvement evaluator in `maintenance/` is the frozen-rubric evaluator half of the same idea.
 
 ## Install
 
@@ -55,8 +55,8 @@ Each package installs independently from its directory:
 # autoresearch
 cd autoresearch && python -m pip install .
 
-# health
-cd health && python -m pip install .
+# maintenance
+cd maintenance && python -m pip install .
 ```
 
 ## License

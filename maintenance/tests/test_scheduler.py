@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from hermes_health_loops.scheduler import ManifestValidationError, render_manifest
+from hermes_maintenance_loops.scheduler import ManifestValidationError, render_manifest
 
 
 class SchedulerTests(unittest.TestCase):

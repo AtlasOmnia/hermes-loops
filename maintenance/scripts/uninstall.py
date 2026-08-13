@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from hermes_health_loops.scheduler import ManifestValidationError, validate_owned_manifest
+from hermes_maintenance_loops.scheduler import ManifestValidationError, validate_owned_manifest
 
 
 def main(argv: list[str] | None = None) -> int:

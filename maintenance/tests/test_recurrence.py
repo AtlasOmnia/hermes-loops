@@ -8,8 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from hermes_health_loops.improvement import evaluate_packets
-from hermes_health_loops.packets import normalize_outcome
+from hermes_maintenance_loops.improvement import evaluate_packets
+from hermes_maintenance_loops.packets import normalize_outcome
 
 
 def _outcome(kind: str, day: str, result: str, session: str | None = None) -> dict[str, object]:

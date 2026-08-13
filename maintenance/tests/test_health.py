@@ -13,8 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
 sys.path.insert(0, str(SRC))
 
-from hermes_health_loops.health import audit_home
-from hermes_health_loops.paths import discover_hermes_home
+from hermes_maintenance_loops.health import audit_home
+from hermes_maintenance_loops.paths import discover_hermes_home
 
 
 class HealthTests(unittest.TestCase):

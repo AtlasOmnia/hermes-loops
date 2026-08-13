@@ -1,4 +1,8 @@
-# Hermes Health Improvement Loops — Changelog
+# Hermes Maintenance Loops — Changelog
+
+## 0.2.0 — Renamed to Hermes Maintenance Loops
+
+- Renames the package, CLI, module, and runtime directory from "health" to "maintenance" to reflect the read-only audit plus suggestion-only improvement scope and avoid confusion with the separate Hermes Health product. The `health` and `improvement` loop names are unchanged.
 
 ## 0.1.1 — Correct distinct-session recurrence detection
 

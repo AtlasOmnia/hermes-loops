@@ -11,9 +11,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from hermes_health_loops.health import audit_home
-from hermes_health_loops.improvement import collect_packets, evaluate_packets
-from hermes_health_loops.report import unified_report
+from hermes_maintenance_loops.health import audit_home
+from hermes_maintenance_loops.improvement import collect_packets, evaluate_packets
+from hermes_maintenance_loops.report import unified_report
 from scripts.privacy_scan import scan_public_text
 
 

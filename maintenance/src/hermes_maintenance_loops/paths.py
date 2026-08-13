@@ -14,12 +14,12 @@ def default_runtime_dir() -> Path:
     """Return external package state, never a repository directory."""
     root = os.environ.get("XDG_STATE_HOME")
     if root:
-        return Path(root) / "hermes-health-improvement-loops"
+        return Path(root) / "hermes-maintenance-loops"
     if os.name == "nt":
-        return Path(os.environ.get("LOCALAPPDATA", Path.home())) / "hermes-health-improvement-loops"
+        return Path(os.environ.get("LOCALAPPDATA", Path.home())) / "hermes-maintenance-loops"
     if os.uname().sysname == "Darwin":
-        return Path.home() / "Library" / "Application Support" / "hermes-health-improvement-loops"
-    return Path.home() / ".local" / "state" / "hermes-health-improvement-loops"
+        return Path.home() / "Library" / "Application Support" / "hermes-maintenance-loops"
+    return Path.home() / ".local" / "state" / "hermes-maintenance-loops"
 
 
 def relative_label(path: Path, root: Path) -> str:

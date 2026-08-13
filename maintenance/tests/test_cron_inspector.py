@@ -11,8 +11,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from hermes_health_loops.cron_inspector import inspect_cron
-from hermes_health_loops.health import audit_home
+from hermes_maintenance_loops.cron_inspector import inspect_cron
+from hermes_maintenance_loops.health import audit_home
 
 
 class CronInspectorTests(unittest.TestCase):

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,1200,900" role="img" aria-labelledby="title description">
-  <title id="title">Hermes Health Improvement Loops: two independent lanes</title>
+  <title id="title">Hermes Maintenance Loops: two independent lanes</title>
   <desc id="description">A high-contrast architecture diagram. The Health lane moves from read-only bounded probes to a concise status. The Improvement lane moves from an explicit packet source through redaction and a frozen rubric to a human-review-only suggestion. An optional report joins only the two outputs. Neither lane has an arrow to Hermes configuration, scheduler, provider, or delivery.</desc>
   <defs>
     <marker id="arrow" viewBox="0,0,10,10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">

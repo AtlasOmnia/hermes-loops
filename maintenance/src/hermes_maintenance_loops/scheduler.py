@@ -12,8 +12,8 @@ from pathlib import Path
 from typing import Any, Mapping
 
 SCHEMA = "install-manifest.v2"
-PACKAGE = "hermes-health-improvement-loops"
-PACKAGE_OWNER = "hermes-health-improvement-loops"
+PACKAGE = "hermes-maintenance-loops"
+PACKAGE_OWNER = "hermes-maintenance-loops"
 MODULES = frozenset({"health", "improvement"})
 
 
@@ -85,7 +85,7 @@ def render_command_proposals(manifest: Mapping[str, Any]) -> list[str]:
         prompt = (
             "Before manually running this proposal, establish the selected Hermes "
             "context from the manifest. "
-            f"Run hermes-health-improvement-loops {module}; emit a redacted result only."
+            f"Run hermes-maintenance-loops {module}; emit a redacted result only."
         )
         command = " ".join(
             [

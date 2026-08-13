@@ -1,8 +1,8 @@
 > Part of the hermes-loops monorepo.
 
-# Hermes Health Improvement Loops
+# Hermes Maintenance Loops
 
-Hermes Health Improvement Loops is a read-only checkup and improvement-notes tool for a Hermes setup. It does not change the setup. Its health check looks for bounded signs such as missing expected files, old session records, low disk space, inaccessible state data, warning patterns in selected logs, and visible trouble signs in supported scheduled-job metadata. It returns a short report showing what looks okay, needs attention, cannot be checked, or is unclear.
+Hermes Maintenance Loops is a read-only checkup and improvement-notes tool for a Hermes setup. It does not change the setup. Its health check looks for bounded signs such as missing expected files, old session records, low disk space, inaccessible state data, warning patterns in selected logs, and visible trouble signs in supported scheduled-job metadata. It returns a short report showing what looks okay, needs attention, cannot be checked, or is unclear.
 
 ![Architecture of the two independent loops](docs/architecture.svg)
 
@@ -102,13 +102,13 @@ python3 -m pip install .
 Run the health loop with an operator-selected Hermes home:
 
 ```bash
-hermes-health-loops health --hermes-home path/to/hermes-home
+hermes-maintenance-loops health --hermes-home path/to/hermes-home
 ```
 
 Run the improvement loop with an explicitly supplied JSON packet and an external runtime directory:
 
 ```bash
-hermes-health-loops improvement \
+hermes-maintenance-loops improvement \
   --source path/to/outcomes.json \
   --runtime-dir path/to/package-runtime
 ```
@@ -116,7 +116,7 @@ hermes-health-loops improvement \
 The optional report command combines results that were requested in the same invocation:
 
 ```bash
-hermes-health-loops report --hermes-home path/to/hermes-home --source path/to/outcomes.json
+hermes-maintenance-loops report --hermes-home path/to/hermes-home --source path/to/outcomes.json
 ```
 
 Paths above are examples only; supply locations that are appropriate for your environment. See [Install and scheduling](docs/install.md) for the dry-run boundary, [Architecture](docs/architecture.md) for the data flow, [Privacy](docs/privacy.md) for limitations, and [Testing](docs/testing.md) for verification commands.

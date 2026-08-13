@@ -9,8 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from hermes_health_loops.packets import PacketValidationError, normalize_outcome, runtime_transition, transition_lifecycle
-from hermes_health_loops.improvement import collect_packets, evaluate_packets, write_runtime_artifacts
+from hermes_maintenance_loops.packets import PacketValidationError, normalize_outcome, runtime_transition, transition_lifecycle
+from hermes_maintenance_loops.improvement import collect_packets, evaluate_packets, write_runtime_artifacts
 
 
 class PacketTests(unittest.TestCase):
@@ -29,14 +29,14 @@ class PacketTests(unittest.TestCase):
             self.assertNotIn("private-value", persisted)
 
     def test_redact_preserves_iso_dates_and_redacts_phones(self) -> None:
-        from hermes_health_loops.redact import redact
+        from hermes_maintenance_loops.redact import redact
         self.assertEqual(redact({"timestamp": "2026-01-01T00:00:00Z"})["timestamp"], "2026-01-01T00:00:00Z")
         self.assertEqual(redact("+1 (555) 123-4567"), "[redacted-phone]")
 
     def test_malformed_packet_error_does_not_echo_input(self) -> None:
         raw = {"schema": "bad", "secret": "do-not-echo"}
         with self.assertRaises(PacketValidationError) as caught:
-            from hermes_health_loops.packets import validate_packet
+            from hermes_maintenance_loops.packets import validate_packet
             validate_packet(raw)
         self.assertNotIn("do-not-echo", str(caught.exception))
 

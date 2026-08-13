@@ -9,9 +9,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from hermes_health_loops.scheduler import ManifestValidationError, render_manifest
+from hermes_maintenance_loops.scheduler import ManifestValidationError, render_manifest
 
-PACKAGE = "hermes-health-improvement-loops"
+PACKAGE = "hermes-maintenance-loops"
 
 
 def default_runtime_dir() -> Path:
