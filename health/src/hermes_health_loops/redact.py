@@ -7,7 +7,7 @@ from typing import Any
 
 _SECRET_KEY = re.compile(r"(secret|token|password|credential|api[_-]?key|auth|cookie|phone|email)", re.I)
 _EMAIL = re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.I)
-_PHONE = re.compile(r"(?<!\d)(?:\+?\d[\d .()_-]{7,}\d)(?!\d)")
+_PHONE = re.compile(r"(?<!\d)(?!(?:19|20)\d{2}-\d{2}-\d{2}(?!\d))(?:\+?\d[\d .()_-]{7,}\d)(?!\d)")
 _PATH = re.compile(r"(?<!\w)(?:/[^\s]+|[A-Za-z]:[\\/][^\s]+)")
 _URL = re.compile(r"https?://[^\s]+", re.I)
 _OPAQUE = re.compile(r"\b[A-Za-z0-9_-]{32,}\b")

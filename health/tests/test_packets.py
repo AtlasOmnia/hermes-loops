@@ -28,6 +28,11 @@ class PacketTests(unittest.TestCase):
             persisted = Path(paths["ledger"]).read_text(encoding="utf-8")
             self.assertNotIn("private-value", persisted)
 
+    def test_redact_preserves_iso_dates_and_redacts_phones(self) -> None:
+        from hermes_health_loops.redact import redact
+        self.assertEqual(redact({"timestamp": "2026-01-01T00:00:00Z"})["timestamp"], "2026-01-01T00:00:00Z")
+        self.assertEqual(redact("+1 (555) 123-4567"), "[redacted-phone]")
+
     def test_malformed_packet_error_does_not_echo_input(self) -> None:
         raw = {"schema": "bad", "secret": "do-not-echo"}
         with self.assertRaises(PacketValidationError) as caught:
