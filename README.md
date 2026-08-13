@@ -35,6 +35,16 @@ Two independent maintenance loops for a Hermes install:
 
 See [health/README.md](health/README.md).
 
+## Session review
+
+A third loop pattern — reviewing your own sessions for recurring mistakes and turning them into
+reusable improvements — is LLM-driven, so it ships as a skill rather than a code harness:
+
+- [hermes-session-review](https://github.com/AtlasOmnia/hermes-custom-pack/tree/main/skills/hermes-session-review) —
+  read-only session review, suggestion-only output, human-gated promotion.
+
+The deterministic `health` improvement loop is the frozen-rubric evaluator half of the same idea.
+
 ## Install
 
 Each package installs independently from its directory:
