@@ -1,0 +1,16 @@
+{
+  "repo_path": ".",
+  "proposal_command": ["python3", "examples/proposal_command_example.py"],
+  "evaluator_command": ["python3", "examples/evaluator_contract_example.py"],
+  "max_trials": 5,
+  "max_seconds": 120,
+  "stop_after_no_improve": 2,
+  "min_improvement": 0.0,
+  "keep_on_improve": true,
+  "revert_on_no_improve": true,
+  "revert_on_failure": true,
+  "allowlist_relative_paths": ["examples", "runs", "."],
+  "tsv_log_path": "runs/experiments.tsv",
+  "jsonl_log_path": "runs/experiments.jsonl",
+  "command_timeout_seconds": 30
+}

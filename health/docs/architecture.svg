@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,1200,900" role="img" aria-labelledby="title description">
+  <title id="title">Hermes Health Improvement Loops: two independent lanes</title>
+  <desc id="description">A high-contrast architecture diagram. The Health lane moves from read-only bounded probes to a concise status. The Improvement lane moves from an explicit packet source through redaction and a frozen rubric to a human-review-only suggestion. An optional report joins only the two outputs. Neither lane has an arrow to Hermes configuration, scheduler, provider, or delivery.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0,0,10,10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#123047"/>
+    </marker>
+    <style>
+      .canvas { fill: #f7fafc; }
+      .title { fill: #102a43; font: 700 34px system-ui, -apple-system, sans-serif; }
+      .subtitle { fill: #334e68; font: 500 19px system-ui, -apple-system, sans-serif; }
+      .lane-health { fill: #e6f6f5; stroke: #087f8c; stroke-width: 4; }
+      .lane-improvement { fill: #fff4e6; stroke: #b45309; stroke-width: 4; }
+      .lane-label-health { fill: #075985; font: 700 25px system-ui, -apple-system, sans-serif; }
+      .lane-label-improvement { fill: #92400e; font: 700 25px system-ui, -apple-system, sans-serif; }
+      .node-health { fill: #ffffff; stroke: #0f766e; stroke-width: 3; }
+      .node-improvement { fill: #ffffff; stroke: #b45309; stroke-width: 3; }
+      .node-report { fill: #eef2ff; stroke: #3730a3; stroke-width: 3; }
+      .node-boundary { fill: #f1f5f9; stroke: #64748b; stroke-width: 3; stroke-dasharray: 10 8; }
+      .node-text { fill: #102a43; font: 600 19px system-ui, -apple-system, sans-serif; text-anchor: middle; }
+      .small-text { fill: #334e68; font: 500 16px system-ui, -apple-system, sans-serif; text-anchor: middle; }
+      .boundary-text { fill: #475569; font: 600 17px system-ui, -apple-system, sans-serif; text-anchor: middle; }
+      .flow { fill: none; stroke: #123047; stroke-width: 4; marker-end: url(#arrow); }
+      .join { fill: none; stroke: #3730a3; stroke-width: 4; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="canvas" x="0" y="0" width="1200" height="900"/>
+  <text class="title" x="600" y="58" text-anchor="middle">Two independent maintenance loops</text>
+  <text class="subtitle" x="600" y="91" text-anchor="middle">Bounded inputs in, concise reviewable outputs out</text>
+
+  <rect class="lane-health" x="55" y="125" width="1090" height="250" rx="22"/>
+  <text class="lane-label-health" x="85" y="165">HEALTH</text>
+  <text class="small-text" x="155" y="194">read-only lane</text>
+
+  <rect class="node-health" x="185" y="218" width="250" height="100" rx="16"/>
+  <text class="node-text" x="310" y="258">read-only bounded</text>
+  <text class="node-text" x="310" y="284">probes</text>
+  <text class="small-text" x="310" y="306">selected source only</text>
+
+  <rect class="node-health" x="755" y="218" width="250" height="100" rx="16"/>
+  <text class="node-text" x="880" y="258">concise status</text>
+  <text class="small-text" x="880" y="286">healthy, warning, or unknown</text>
+  <text class="small-text" x="880" y="307">no write authority</text>
+
+  <path class="flow" d="M 435 268 H 755"/>
+  <text class="small-text" x="595" y="250">bounded findings</text>
+
+  <rect class="lane-improvement" x="55" y="405" width="1090" height="250" rx="22"/>
+  <text class="lane-label-improvement" x="85" y="445">IMPROVEMENT</text>
+  <text class="small-text" x="175" y="474">suggestion-only lane</text>
+
+  <rect class="node-improvement" x="130" y="505" width="215" height="100" rx="16"/>
+  <text class="node-text" x="237" y="545">explicit packet</text>
+  <text class="node-text" x="237" y="571">source</text>
+  <text class="small-text" x="237" y="593">no transcript crawl</text>
+
+  <rect class="node-improvement" x="405" y="505" width="215" height="100" rx="16"/>
+  <text class="node-text" x="512" y="545">redaction +</text>
+  <text class="node-text" x="512" y="571">frozen rubric</text>
+  <text class="small-text" x="512" y="593">evaluate, do not apply</text>
+
+  <rect class="node-improvement" x="680" y="505" width="300" height="100" rx="16"/>
+  <text class="node-text" x="830" y="545">human-review-only</text>
+  <text class="node-text" x="830" y="571">suggestion</text>
+  <text class="small-text" x="830" y="593">approval remains external</text>
+
+  <path class="flow" d="M 345 555 H 405"/>
+  <path class="flow" d="M 620 555 H 680"/>
+
+  <rect class="node-report" x="395" y="710" width="410" height="100" rx="16"/>
+  <text class="node-text" x="600" y="750">Optional report</text>
+  <text class="small-text" x="600" y="778">joins outputs only; no new authority</text>
+  <text class="small-text" x="600" y="798">display, not collection or evaluation</text>
+
+  <path class="join" d="M 880 318 C 1050 390, 1110 590, 900 670 C 820 696, 760 700, 700 710"/>
+  <path class="join" d="M 980 555 C 1090 600, 1080 690, 760 710"/>
+
+  <rect class="node-boundary" x="130" y="840" width="940" height="42" rx="12"/>
+  <text class="boundary-text" x="600" y="867">Outside this package: Hermes configuration · scheduler · provider · delivery — no control arrows</text>
+</svg>

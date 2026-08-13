@@ -1,0 +1,41 @@
+# Bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p8
+*.p12
+*.mobileprovision
+credentials.json
+secrets.json
+
+# Test/cache artifacts
+tmp/
+*.tmp
+
+# Logs and run outputs
+.runs/
+runs/
+*.tsv
+*.log
+
+# OS/editor artifacts
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Package metadata
+*.egg-info/
+dist/
+build/

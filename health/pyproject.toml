@@ -1,0 +1,16 @@
+[project]
+name = "hermes-health-improvement-loops"
+version = "0.1.0"
+description = "Portable read-only health auditing and suggestion-only improvement evaluation for Hermes maintenance workflows"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "Hermes Health Improvement Loops contributors"}]
+dependencies = []
+
+[project.scripts]
+hermes-health-loops = "hermes_health_loops.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,16 @@
+# Safe template only. This file contains no provider, model, delivery, or credential choice.
+modules:
+  health:
+    enabled: false
+    schedule: "<explicit schedule>"
+  improvement:
+    enabled: false
+    schedule: "<explicit schedule>"
+
+# Set these explicitly in an installation manifest; no defaults are applied.
+# Values are operator-supplied review inputs and are intentionally not selected here.
+provider: "<operator-supplied provider>"
+model: "<operator-supplied model>"
+delivery: "<operator-supplied delivery>"
+hermes_home: "<operator-supplied Hermes context>"
+runtime_dir: "<operator-supplied package runtime directory>"

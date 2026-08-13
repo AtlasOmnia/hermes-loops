@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-autoresearch"
+description = "Reusable provider-agnostic autoresearch harness"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = []
+authors = [{ name = "Hermes" }]
+version = "0.1.0"
+
+[project.scripts]
+hermes-autoresearch = "hermes_autoresearch.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
