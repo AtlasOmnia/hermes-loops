@@ -31,6 +31,7 @@ INTERNAL_FIXTURE_ALLOWLIST = {
     "tests/test_health.py": {"phone"},
     "tests/test_cron_inspector.py": {"phone", "email"},
     "tests/test_packets.py": {"phone"},
+    "tests/test_recurrence.py": {"phone"},
 }
 
 

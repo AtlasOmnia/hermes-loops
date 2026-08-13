@@ -23,8 +23,8 @@ def parse_time(value: object) -> datetime | None:
 def evaluate_kind(kind: str, count: int, newest: datetime | None, now: datetime) -> str:
     if kind in CRITICAL_KINDS:
         return "critical-signal"
-    if kind in WATCH_KINDS:
-        return "watch-signal"
     if count >= REPEAT_COUNT and newest and now - newest <= timedelta(days=WINDOW_DAYS):
         return "repeat-signal"
+    if kind in WATCH_KINDS:
+        return "watch-signal"
     return "insufficient-signal"

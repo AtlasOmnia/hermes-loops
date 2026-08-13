@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from collections import Counter, defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -50,11 +50,22 @@ def evaluate_packets(packets: list[dict[str, Any]], *, now: datetime | None = No
     counts = Counter(packet["kind"] for packet in packets)
     for fingerprint, group in sorted(grouped.items()):
         kind = group[0]["kind"]
-        dates = [parsed for p in group if p["day"] != "unknown-date" if (parsed := parse_time(p["day"])) is not None]
-        newest = max(dates, default=None)
-        decision = evaluate_kind(kind, len(group), newest, current)
-        if decision in {"critical-signal", "repeat-signal"} or (decision == "watch-signal" and len(group) >= REPEAT_COUNT):
-            proposals.append({"fingerprint": fingerprint, "classification": decision, "count": len(group), "window_days": WINDOW_DAYS, "suggestion_only": True, "approved": False, "applied": False, "lifecycle": "suggested", "action": "human review required"})
+        session_days: dict[str, str] = {}
+        for packet in group:
+            session = packet.get("session", "unspecified")
+            day = packet["day"]
+            if session not in session_days:
+                session_days[session] = day
+            elif day != "unknown-date" and (session_days[session] == "unknown-date" or day < session_days[session]):
+                session_days[session] = day
+        distinct = len(session_days)
+        parsed_days = [d for d in (parse_time(day) for day in session_days.values()) if d is not None]
+        newest = max(parsed_days, default=None)
+        oldest = min(parsed_days, default=None)
+        span_ok = newest is not None and oldest is not None and (newest - oldest) <= timedelta(days=WINDOW_DAYS)
+        decision = evaluate_kind(kind, distinct, newest, current)
+        if decision == "critical-signal" or (decision == "repeat-signal" and span_ok):
+            proposals.append({"fingerprint": fingerprint, "classification": decision, "count": distinct, "window_days": WINDOW_DAYS, "suggestion_only": True, "approved": False, "applied": False, "lifecycle": "suggested", "action": "human review required"})
     return {"schema": "improvement.v1", "packet_count": len(packets), "kind_counts": dict(sorted(counts.items())), "proposals": proposals, "policy": {"suggestion_only": True, "approval": "never automatic", "application": "never automatic", "repeat_count": REPEAT_COUNT, "window_days": WINDOW_DAYS, "critical_kinds": sorted(CRITICAL_KINDS)}}
 
 

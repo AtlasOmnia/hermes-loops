@@ -1,6 +1,6 @@
 [project]
 name = "hermes-health-improvement-loops"
-version = "0.1.0"
+version = "0.1.1"
 description = "Portable read-only health auditing and suggestion-only improvement evaluation for Hermes maintenance workflows"
 readme = "README.md"
 requires-python = ">=3.10"

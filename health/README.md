@@ -1,4 +1,4 @@
-> Part of the [hermes-loops](https://github.com/AtlasOmnia/hermes-loops) monorepo.
+> Part of the hermes-loops monorepo.
 
 # Hermes Health Improvement Loops
 

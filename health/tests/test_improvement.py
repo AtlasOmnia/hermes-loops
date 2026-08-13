@@ -24,7 +24,7 @@ class ImprovementTests(unittest.TestCase):
             payload = json.dumps(packets)
             self.assertNotIn("do-not-retain", payload)
             self.assertNotIn("abcdefghijklmnopqrstuvwxyz", payload)
-            self.assertEqual(set(packets[0]), {"schema", "kind", "day", "fingerprint", "signal"})
+            self.assertEqual(set(packets[0]), {"schema", "kind", "day", "session", "fingerprint", "signal"})
             self.assertEqual(redact({"password": "secret"})["password"], "[redacted]")
 
     def test_frozen_thresholds_do_not_promote_two_repeats(self) -> None:
@@ -37,7 +37,7 @@ class ImprovementTests(unittest.TestCase):
     def test_repeated_signal_is_suggestion_only_and_external(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             source = Path(temp) / "fixture.json"
-            source.write_text(json.dumps([{"kind": "warning", "timestamp": f"2026-01-0{i}T00:00:00Z", "result": "same"} for i in range(1, 4)]), encoding="utf-8")
+            source.write_text(json.dumps([{"kind": "warning", "timestamp": f"2026-01-0{i}T00:00:00Z", "result": "same", "session": f"s{i}"} for i in range(1, 4)]), encoding="utf-8")
             packets = collect_packets([source])
             result = evaluate_packets(packets, now=datetime(2026, 1, 4, tzinfo=timezone.utc))
             self.assertEqual(len(result["proposals"]), 1)

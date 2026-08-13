@@ -15,7 +15,7 @@ Health uses metadata and bounded content probes. SQLite opens with a read-only U
 
 ## Redaction limitations
 
-Redaction removes common secret-like key values, email addresses, phone-like numbers, absolute POSIX and Windows paths, URLs, and long opaque tokens. Packet retention is limited to event kind, outcome, timestamp bucket, and a deterministic redacted fingerprint. Redaction is not a guarantee against every possible personal-data format; review fixtures before sharing.
+Redaction removes common secret-like key values, email addresses, phone-like numbers, absolute POSIX and Windows paths, URLs, and long opaque tokens. Packet retention is limited to event kind, outcome, timestamp bucket, a bounded session lineage identifier, and a deterministic redacted fingerprint. Redaction is not a guarantee against every possible personal-data format; review fixtures before sharing.
 
 ## Runtime state
 
