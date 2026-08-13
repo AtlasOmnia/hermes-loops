@@ -8,11 +8,11 @@ unchanged.
 | --- | --- | --- |
 | [autoresearch](autoresearch/) | Karpathy-style propose→test→keep/revert harness for repository experiments | Yes — commits/reverts in a local git repo |
 | [health](health/) | Read-only Hermes health audit + suggestion-only improvement evaluator | No — read-only by design |
-| [hermes-session-review](https://github.com/AtlasOmnia/hermes-custom-pack/blob/main/skills/hermes-session-review/SKILL.md) | LLM-driven session review for recurring mistakes and reusable improvements — a skill in hermes-custom-pack | No — read-only, suggestion-only |
+| [hermes-diagnostic-review](https://github.com/AtlasOmnia/hermes-custom-pack/blob/main/skills/hermes-diagnostic-review/SKILL.md) | LLM-driven diagnostic review for recurring mistakes and reusable improvements — a skill in hermes-custom-pack | No — read-only, suggestion-only |
 
 The two code packages have opposite safety postures: the autoresearch harness mutates a git
 repository, while the health/improvement loops never write to a Hermes installation. They install,
-version, and test independently. The third pattern — session review — is LLM-driven, so it ships as
+version, and test independently. The third pattern — diagnostic review — is LLM-driven, so it ships as
 a skill in `hermes-custom-pack` rather than as code here.
 
 ## Loops
@@ -37,13 +37,13 @@ Two independent maintenance loops for a Hermes install:
 
 See [health/README.md](health/README.md).
 
-## Session review
+## Diagnostic review
 
 A third loop pattern — reviewing your own sessions for recurring mistakes and turning them into
 reusable improvements — is LLM-driven, so it ships as a skill rather than a code harness:
 
-- [hermes-session-review](https://github.com/AtlasOmnia/hermes-custom-pack/blob/main/skills/hermes-session-review/SKILL.md) —
-  read-only session review, suggestion-only output, human-gated promotion.
+- [hermes-diagnostic-review](https://github.com/AtlasOmnia/hermes-custom-pack/blob/main/skills/hermes-diagnostic-review/SKILL.md) —
+  read-only diagnostic review, suggestion-only output, human-gated promotion.
 
 The deterministic `health` improvement loop is the frozen-rubric evaluator half of the same idea.
 
