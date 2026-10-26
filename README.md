@@ -1,5 +1,7 @@
 # Hermes Loops
 
+> Part of the AtlasOmnia Hermes Agent toolset → [hermesagenttools.com/hermes-agent/](https://hermesagenttools.com/hermes-agent/)
+
 Autonomous agent loops for [Hermes Agent](https://github.com/NousResearch/hermes-agent): small,
 reviewable control loops that run against a bounded target and either improve it or leave it
 unchanged.
